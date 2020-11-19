@@ -1,0 +1,37 @@
+ShortClicked(RaycastHit point)
+Target object: Held items
+Requirements to call:
+- Trigger short-pressed
+- Items are held
+- Player is targeting a non-environment surface
+
+LongClicked(RaycastHit point)
+Target object: Held items
+Requirements to call:
+- Trigger long-pressed
+- Items are held
+- Player is targeting a surface
+
+WorldClicked(GameObject hand)
+Target object: Player targeted object
+Requirements to call:
+- Trigger short-pressed
+- No items are held
+- Player is targeting a non-environment surface
+- Target is within reach
+
+ShortClickedSky(Ray aim)
+Target object: Held items
+Requirements to call:
+- Trigger short-pressed
+- Items are held
+- Player is not targeting a surface
+
+LongClickedSky(Ray aim)
+Target object: Held items
+Requirements to call:
+- Trigger long-pressed
+- Items are held
+- Player is not targeting a surface
+
+# Typically sky callbacks should call their normal equivalents with no target or some similar action.
