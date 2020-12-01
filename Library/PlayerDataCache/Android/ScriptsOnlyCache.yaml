@@ -4,7 +4,7 @@ ScriptsOnlyBuild:
     - Control
     - NodeSnap
     - PickupItem
-    - SimpleSmoothMouseLook
+    - SimpleSmoothMouseLookXR
     - SnapItem
     Google.XR.Cardboard.dll:
     - Google.XR.Cardboard.XRLoader
@@ -62,21 +62,21 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11226}
+      Script: {instanceID: 11228}
     - Class: 114
-      Script: {instanceID: 11540}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11802}
+      Script: {instanceID: 11804}
     - Class: 114
-      Script: {instanceID: 12386}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12728}
     - Class: 114
-      Script: {instanceID: 12726}
+      Script: {instanceID: 13000}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 13028}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13896}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -612,6 +612,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 3bb0a6915e70ccb3f59cc8f146b47c45
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SimpleSmoothMouseLookXR
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

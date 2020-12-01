@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 6454173005667357367}
   - component: {fileID: 6454173005667357362}
   - component: {fileID: 6454173005667357363}
-  - component: {fileID: 6454173005667357373}
   - component: {fileID: 6454173005667357360}
+  - component: {fileID: 5288038637912133813}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -207,25 +207,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
---- !u!114 &6454173005667357373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454173005667357364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a13ea07b1e32d7149ab16a6328eff950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clampInDegrees: {x: 360, y: 180}
-  lockCursor: 1
-  sensitivity: {x: 2, y: 2}
-  smoothing: {x: 3, y: 3}
-  targetDirection: {x: 0, y: 0}
-  targetCharacterDirection: {x: 0, y: 0}
-  characterBody: {fileID: 6454173007043477841}
 --- !u!114 &6454173005667357360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +228,25 @@ MonoBehaviour:
   reach: 2
   holdTime: 0.5
   environmentTag: Environment
+--- !u!114 &5288038637912133813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454173005667357364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2c616be7c37ee47922c9af1a3d8d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clampInDegrees: {x: 360, y: 180}
+  lockCursor: 1
+  sensitivity: {x: 2, y: 2}
+  smoothing: {x: 3, y: 3}
+  targetDirection: {x: 0, y: 0}
+  targetCharacterDirection: {x: 0, y: 0}
+  characterBody: {fileID: 6454173007043477841}
 --- !u!1 &6454173005714302400
 GameObject:
   m_ObjectHideFlags: 0
