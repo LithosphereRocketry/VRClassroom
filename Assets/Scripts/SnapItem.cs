@@ -8,6 +8,9 @@ public class SnapItem : MonoBehaviour
     void ShortClicked(RaycastHit target) {
 		GameObject node = target.collider.gameObject;
 		if(node.GetComponent("NodeSnap")) {
+			if(node.GetComponent<Rigidbody>()) {
+				gameObject.GetComponent<Rigidbody>().isKinematic = true;
+			}
 			gameObject.transform.SetParent(node.transform, false);
 		}
 	}
