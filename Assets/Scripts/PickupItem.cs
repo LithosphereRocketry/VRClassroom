@@ -9,7 +9,7 @@ public class PickupItem : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
     }
 	
-	void WorldClicked(GameObject hand) {
+	protected void WorldClicked(GameObject hand) {
 	//	Debug.Log(hand);
 		gameObject.transform.SetParent(hand.transform, false);
 		if(rb && !rb.isKinematic) {
@@ -18,12 +18,12 @@ public class PickupItem : MonoBehaviour {
 		gameObject.transform.localPosition = new Vector3();
 		gameObject.transform.localRotation = Quaternion.identity;
 	}
-	void LongClicked() {
+	protected void LongClicked() {
 		gameObject.transform.SetParent(null, true);
 		if(rb) { rb.isKinematic = false; }
 	}
 	
-	void LongClickedSky() {
+	protected void LongClickedSky() {
 		LongClicked();
 	}
 }
