@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class SnapItem : PickupItem
 {
-    //public Rigidbody storedBody;
-	// Start is called before the first frame update
-    void WorldClicked(GameObject hand) {
-	//	if(storedBody || true) {
-	//		Rigidbody rb = gameObject.AddComponent<Rigidbody>();
-			// rb = Instantiate(storedBody);
-	//		storedBody = null;
-	//	}
+    protected float mass;
+	protected float drag;
+	protected float angDrag;
+	protected Vector3 cg;
+	
+	void WorldClicked(GameObject hand) {
+		if(!rb) {
+			rb = gameObject.AddComponent<Rigidbody>();
+		}
+		rb.mass = mass;
+		rb.drag = drag;
+		rb.angularDrag = angDrag;
+		rb.centerOfMass = cg;
 		base.WorldClicked(hand);
 	}
 	
@@ -22,8 +27,11 @@ public class SnapItem : PickupItem
 		//	Destroy(gameObject.GetComponent<Rigidbody>());
 			
 			gameObject.transform.SetParent(node.transform, false);
-			gameObject.GetComponent<Rigidbody>().isKinematic = false;
-			
+			mass = rb.mass;
+			drag = rb.drag;
+			angDrag = rb.angularDrag;
+			cg = rb.centerOfMass;
+			Destroy(rb);
 		}
 	}
 }

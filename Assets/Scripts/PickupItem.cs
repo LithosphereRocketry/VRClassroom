@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupItem : MonoBehaviour {
-    private Rigidbody rb;
+    protected Rigidbody rb;
 	// Start is called before the first frame update
     void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
