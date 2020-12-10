@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 44
+  controlID: 170
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 114
+  controlID: 98
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 115
+  controlID: 99
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -396,9 +396,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e360000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 62f1ffff48faffff68fbffffd0340000
+      m_ExpandedIDs: 88beffffb6e4ffff86f6ffffaaf6ffffc2f8ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -458,9 +458,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.5199003, y: 1.1067204, z: 9.526619}
+    m_Target: {x: -2.053823, y: 0.48827708, z: 10.032639}
     speed: 2
-    m_Value: {x: -0.5199003, y: 1.1067204, z: 9.526619}
+    m_Value: {x: -2.053823, y: 0.48827708, z: 10.032639}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -506,13 +506,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.13711387, y: -0.43521217, z: 0.06723786, w: 0.88730645}
+    m_Target: {x: -0.24835862, y: -0.39807662, z: 0.112893045, w: -0.87587285}
     speed: 2
-    m_Value: {x: 0.13557948, y: -0.4379636, z: 0.06699051, w: 0.88618195}
+    m_Value: {x: -0.24835302, y: -0.39806765, z: 0.112890504, w: -0.8758531}
   m_Size:
-    m_Target: 1.0323911
+    m_Target: 0.9546754
     speed: 2
-    m_Value: 0.73239106
+    m_Value: 1.2546754
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -666,20 +666,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\BGraham Unity\VRRoom
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3e360000
-    m_LastClickedID: 13886
-    m_ExpandedIDs: 000000001c3600001e36000000ca9a3b
+    m_SelectedIDs: 96360000
+    m_LastClickedID: 13974
+    m_ExpandedIDs: 00000000683600006a36000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -707,7 +707,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001c3600001e360000
+    m_ExpandedIDs: 00000000683600006a360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
