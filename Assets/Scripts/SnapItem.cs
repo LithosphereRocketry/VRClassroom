@@ -8,7 +8,15 @@ public class SnapItem : PickupItem
 	protected float drag;
 	protected float angDrag;
 	protected Vector3 cg;
-	
+	void Start() {
+		base.Start();
+		if(rb) {		
+			mass = rb.mass;
+			drag = rb.drag;
+			angDrag = rb.angularDrag;
+			cg = rb.centerOfMass;
+		}
+	}
 	void WorldClicked(GameObject hand) {
 		if(!rb) {
 			rb = gameObject.AddComponent<Rigidbody>();
@@ -19,7 +27,6 @@ public class SnapItem : PickupItem
 		rb.centerOfMass = cg;
 		base.WorldClicked(hand);
 	}
-	
 	void ShortClicked(RaycastHit target) {
 		GameObject node = target.collider.gameObject;
 		if(node.GetComponent("NodeSnap")) {

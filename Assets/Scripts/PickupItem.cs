@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour {
     protected Rigidbody rb;
 	// Start is called before the first frame update
-    void Start() {
+    protected void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
     }
 	

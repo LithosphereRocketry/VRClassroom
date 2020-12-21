@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7282881730306339676}
   - component: {fileID: 5039937232757905300}
   - component: {fileID: 7282881730306339675}
+  - component: {fileID: 7070416584111921027}
   m_Layer: 0
   m_Name: TestTube
   m_TagString: Untagged
@@ -60,7 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650f7dfd67c375746bf57c5a6efa7846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storedBody: {fileID: 0}
 --- !u!54 &7282881730306339675
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,6 +77,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7070416584111921027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7282881730306339679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c27da3a10575c43915a0b6152fcad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &7282881729148845830
 CapsuleCollider:
   m_ObjectHideFlags: 0
