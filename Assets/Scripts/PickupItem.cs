@@ -10,7 +10,6 @@ public class PickupItem : MonoBehaviour {
     }
 	
 	protected void WorldClicked(GameObject hand) {
-	//	Debug.Log(hand);
 		gameObject.transform.SetParent(hand.transform, false);
 		if(rb && !rb.isKinematic) {
 			rb.isKinematic = true;

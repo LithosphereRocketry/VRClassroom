@@ -16,7 +16,6 @@ public class NodeSnap : MonoBehaviour
 		foreach(Transform t in transform) {
 			if(t.gameObject != model && t.gameObject != gameObject) {
 				isAttached = true;
-				Debug.Log(t.gameObject);
 			}
 		}
 		if(isAttached && c.enabled) {
