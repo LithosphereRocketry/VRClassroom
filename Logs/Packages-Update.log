@@ -43,3 +43,27 @@ The following packages were added:
   com.unity.textmeshpro@2.1.1
   com.unity.timeline@1.2.16
   com.unity.ugui@1.0.0
+
+=== Thu Jan  7 22:53:01 2021
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.google.xr.cardboard@https://github.com/googlevr/cardboard-xr-plugin.git
+
+=== Thu Jan  7 22:55:42 2021
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.google.xr.cardboard@file:D:/GoogleVR/cardboard-xr-plugin-master
+
+=== Thu Jan  7 22:57:39 2021
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.google.xr.cardboard@file:D:/GoogleVR/cardboard-xr-plugin-master

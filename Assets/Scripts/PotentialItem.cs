@@ -8,6 +8,8 @@ public class PotentialItem : MonoBehaviour
 	public float pointPotential;
 	
     void Start() {
-        
+        foreach(PotentialGrid p in Object.FindObjectsOfType<PotentialGrid>()) {
+			p.gameObject.SendMessage("UpdatePotentials", gameObject);
+		}
     }
 }
