@@ -61,7 +61,9 @@ public class PotentialGrid : MonoBehaviour
 		Vector3 targetpoint = new Vector3(obj.transform.position.x, 0, obj.transform.position.z);
 		if(stats) {
 			if(stats.type == "point") {
-				return k*stats.pointPotential/Vector3.Distance(point, targetpoint);
+				return k*stats.potential/Vector3.Distance(point, targetpoint);
+			} else if(stats.type == "vertline") {
+				return k*stats.potential/stats.lineEquivLength*Mathf.Log(stats.lineEquivLength/Vector3.Distance(point, targetpoint));
 			} else {
 				return 0;
 			}

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PotentialItem : MonoBehaviour
 {
     public string type;
-	public float pointPotential;
+	public float potential;
+	public float lineEquivLength;
 	
     void Start() {
         foreach(PotentialGrid p in Object.FindObjectsOfType<PotentialGrid>()) {

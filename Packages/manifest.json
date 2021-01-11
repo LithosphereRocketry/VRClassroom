@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.google.xr.cardboard": "file:D:/cardboard-xr-plugin-master-v2/cardboard-xr-plugin-master",
+    "com.google.xr.cardboard": "file:../Assets/cardboard-xr-plugin-master",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.2.1",
