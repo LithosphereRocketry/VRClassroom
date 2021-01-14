@@ -8,8 +8,8 @@ public class PotentialGrid : MonoBehaviour
     private const float k = 8.987552e9f;
 	private List<GameObject> trackedObjects = new List<GameObject>();
 	private Stopwatch clock;
-	public static int width = 81;
-	public static int height = 61;
+	public static int width = 41;
+	public static int height = 41;
 	public float frameTimeTarget = 10f;
 	public float lineWidth;
 	public float cellSize;
