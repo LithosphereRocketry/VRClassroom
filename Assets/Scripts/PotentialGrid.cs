@@ -64,6 +64,12 @@ public class PotentialGrid : MonoBehaviour
 				return k*stats.potential/Vector3.Distance(point, targetpoint);
 			} else if(stats.type == "vertline") {
 				return k*stats.potential/stats.lineEquivLength*Mathf.Log(stats.lineEquivLength/Vector3.Distance(point, targetpoint));
+			} else if(stats.type == "line") {
+				float distance = Vector3.Cross(obj.transform.up, point-targetpoint).magnitude;
+				return k*stats.potential/stats.lineEquivLength*Mathf.Log(stats.lineEquivLength/distance);
+			} else if(stats.type == "plane") {
+				UnityEngine.Debug.Log("Someone tried to make an infinite plane charge. What a jokester. Shame about the universe being destroyed!");
+				return 0;
 			} else {
 				return 0;
 			}

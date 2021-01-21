@@ -12,7 +12,9 @@ public class FloorItem : PickupItem {
 			gameObject.transform.position = target.point;
 			lookDir.y = gameObject.transform.position.y;
 			gameObject.transform.LookAt(lookDir, Vector3.up);
-			
+			foreach(Transform t in gameObject.transform) {
+				t.gameObject.SendMessage("UpdateOrientation", lookDir);
+			}
 		}
 	}
 }

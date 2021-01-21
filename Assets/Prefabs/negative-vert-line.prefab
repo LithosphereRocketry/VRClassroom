@@ -147,5 +147,10 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9134178435174025213, guid: 00f852e02f3ed3649a4c300d2141fc90,
+        type: 3}
+      propertyPath: potential
+      value: -1e-10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00f852e02f3ed3649a4c300d2141fc90, type: 3}
