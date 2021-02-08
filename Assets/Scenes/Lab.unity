@@ -2207,7 +2207,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1178923592}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1065942097
+--- !u!114 &1065942096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2260,6 +2260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9784cf15aaa4a0446b446342c820e7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementData: {fileID: 4900000, guid: 9f91feecd44676a459622193f07ed317, type: 3}
   textCanvas: {fileID: 1268595473}
 --- !u!1 &1072639779
 GameObject:
@@ -2371,6 +2372,10 @@ PrefabInstance:
     - target: {fileID: 732633591, guid: c170138b41c40b2428ee958b93ebf0d6, type: 3}
       propertyPath: element
       value: na
+      objectReference: {fileID: 0}
+    - target: {fileID: 732633591, guid: c170138b41c40b2428ee958b93ebf0d6, type: 3}
+      propertyPath: elementNum
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1255927251719672717, guid: c170138b41c40b2428ee958b93ebf0d6,
         type: 3}
@@ -4051,6 +4056,10 @@ PrefabInstance:
       propertyPath: element
       value: k
       objectReference: {fileID: 0}
+    - target: {fileID: 732633591, guid: c170138b41c40b2428ee958b93ebf0d6, type: 3}
+      propertyPath: elementNum
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 1255927251719672717, guid: c170138b41c40b2428ee958b93ebf0d6,
         type: 3}
       propertyPath: m_Name
@@ -4481,6 +4490,10 @@ PrefabInstance:
     - target: {fileID: 732633591, guid: c170138b41c40b2428ee958b93ebf0d6, type: 3}
       propertyPath: element
       value: li
+      objectReference: {fileID: 0}
+    - target: {fileID: 732633591, guid: c170138b41c40b2428ee958b93ebf0d6, type: 3}
+      propertyPath: elementNum
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1255927251719672717, guid: c170138b41c40b2428ee958b93ebf0d6,
         type: 3}
@@ -5090,6 +5103,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1208477837}
     m_Modifications:
+    - target: {fileID: 732633591, guid: c170138b41c40b2428ee958b93ebf0d6, type: 3}
+      propertyPath: elementNum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1255927251719672717, guid: c170138b41c40b2428ee958b93ebf0d6,
         type: 3}
       propertyPath: m_Name
