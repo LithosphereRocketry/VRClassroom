@@ -65,6 +65,7 @@ public class Control : MonoBehaviour
 			} else {
 				if(click && !canTP && lookPt.distance <= reach) {
 					lookPt.collider.gameObject.SendMessage("WorldClicked", hand, SendMessageOptions.DontRequireReceiver);
+					Application.Quit();
 				}
 			}
 		} else {
