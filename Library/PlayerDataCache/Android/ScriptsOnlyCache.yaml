@@ -1,11 +1,26 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ChemClipboard
+    - ChemSource
     - Control
+    - CustomCenterOfMass
+    - DeleteButton
+    - ExitButton
+    - FixRotation
+    - FloorItem
+    - FloorSnap
+    - ItemGenerator
     - NodeSnap
     - PickupItem
+    - PotentialGrid
+    - PotentialItem
+    - SceneButton
     - SimpleSmoothMouseLookXR
     - SnapItem
+    - StaticCameraClick
+    - TrashCan
+    - TrashableItem
     Google.XR.Cardboard.dll:
     - Google.XR.Cardboard.XRLoader
     Unity.Rider.Editor.dll:
@@ -28,11 +43,16 @@ ScriptsOnlyBuild:
     UnityEngine.SpatialTracking.dll:
     - UnityEngine.SpatialTracking.TrackedPoseDriver
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.PhysicsRaycaster
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Text
     UnityEngine.XR.LegacyInputHelpers.dll:
     - UnityEditor.XR.LegacyInputHelpers.CameraOffset
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Lab.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -51,11 +71,19 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
+    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -64,20 +92,62 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11228}
     - Class: 114
+      Script: {instanceID: 11246}
+    - Class: 114
+      Script: {instanceID: 11418}
+    - Class: 114
       Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11804}
+      Script: {instanceID: 11594}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 11726}
     - Class: 114
-      Script: {instanceID: 12728}
+      Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 13000}
+      Script: {instanceID: 11810}
     - Class: 114
-      Script: {instanceID: 13028}
+      Script: {instanceID: 11880}
     - Class: 114
-      Script: {instanceID: 13896}
+      Script: {instanceID: 11888}
+    - Class: 114
+      Script: {instanceID: 11918}
+    - Class: 114
+      Script: {instanceID: 12044}
+    - Class: 114
+      Script: {instanceID: 12406}
+    - Class: 114
+      Script: {instanceID: 12436}
+    - Class: 114
+      Script: {instanceID: 12586}
+    - Class: 114
+      Script: {instanceID: 12688}
+    - Class: 114
+      Script: {instanceID: 12718}
+    - Class: 114
+      Script: {instanceID: 12726}
+    - Class: 114
+      Script: {instanceID: 12756}
+    - Class: 114
+      Script: {instanceID: 12858}
+    - Class: 114
+      Script: {instanceID: 12900}
+    - Class: 114
+      Script: {instanceID: 13030}
+    - Class: 114
+      Script: {instanceID: 13058}
+    - Class: 114
+      Script: {instanceID: 13242}
+    - Class: 114
+      Script: {instanceID: 13254}
+    - Class: 114
+      Script: {instanceID: 13308}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -87,7 +157,98 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 215
+      Script: {instanceID: 0}
+    - Class: 220
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    Assets/Scenes/Title Screen.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 102
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11228}
+    - Class: 114
+      Script: {instanceID: 11246}
+    - Class: 114
+      Script: {instanceID: 11418}
+    - Class: 114
+      Script: {instanceID: 11810}
+    - Class: 114
+      Script: {instanceID: 11888}
+    - Class: 114
+      Script: {instanceID: 12014}
+    - Class: 114
+      Script: {instanceID: 12194}
+    - Class: 114
+      Script: {instanceID: 12756}
+    - Class: 114
+      Script: {instanceID: 12858}
+    - Class: 114
+      Script: {instanceID: 13030}
+    - Class: 114
+      Script: {instanceID: 13242}
+    - Class: 114
+      Script: {instanceID: 13254}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 215
+      Script: {instanceID: 0}
+    - Class: 220
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -230,6 +391,12 @@ ScriptsOnlyBuild:
     className: LayoutElement
   - hash:
       serializedVersion: 2
+      Hash: 91ce88a76c97abbef5206b85dac515b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomCenterOfMass
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -260,6 +427,12 @@ ScriptsOnlyBuild:
     className: TransitionArmModel
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TrashableItem
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -278,6 +451,12 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: fb5336fee17f4348aa39f85d85112211
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PotentialItem
+  - hash:
+      serializedVersion: 2
       Hash: d251bf88db6c95a6b1aa0b69298da9ef
     assemblyName: UnityEngine.SpatialTracking.dll
     namespaceName: UnityEngine.SpatialTracking
@@ -290,6 +469,12 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TrashCan
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -300,6 +485,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: e548abc2d84ac2d339ccc4cf71303cff
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChemClipboard
   - hash:
       serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
@@ -320,10 +511,28 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ExitButton
+  - hash:
+      serializedVersion: 2
+      Hash: ac15f8aef50591bf0d0f74bcea88be69
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChemSource
+  - hash:
+      serializedVersion: 2
       Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ScrollRect
+  - hash:
+      serializedVersion: 2
+      Hash: 50f444e473e8c6b4dd1664bb7e3c27ae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChemInfo
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -342,6 +551,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 55154e1dae26d86c412a8778db47ebac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StaticCameraClick
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -392,6 +607,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: e6ac014dfe9bfa4c436f0b42073fb14f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixRotation
+  - hash:
+      serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -428,6 +649,12 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 66bca5cc6a18c5298ec75235e56a84d6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeleteButton
+  - hash:
+      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -438,6 +665,24 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: c0203648a1acd8c61be4da28628ad811
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PotentialGrid
+  - hash:
+      serializedVersion: 2
+      Hash: 3bb0a6915e70ccb3f59cc8f146b47c45
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SimpleSmoothMouseLookXR
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloorSnap
   - hash:
       serializedVersion: 2
       Hash: 3bb0a6915e70ccb3f59cc8f146b47c45
@@ -474,6 +719,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 5d6d89ca6a1990d91f97b08695586d0c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemGenerator
   - hash:
       serializedVersion: 2
       Hash: 893dbdbfe611d62e230a686ea89f1efd
@@ -584,6 +835,12 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
+      Hash: 713d5a24bdfc59f90263297fc5f1cc39
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneButton
+  - hash:
+      serializedVersion: 2
       Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -608,17 +865,18 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloorItem
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 3bb0a6915e70ccb3f59cc8f146b47c45
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SimpleSmoothMouseLookXR
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Unity19/VRRoom/VRClassroom.apk
+  - Assets/Scenes/Title Screen.unity
+  - Assets/Scenes/Lab.unity
+  playerPath: D:/BGraham Unity/VRRoom/VRClassroom.apk

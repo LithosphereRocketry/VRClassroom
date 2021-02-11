@@ -849,6 +849,11 @@ PrefabInstance:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 442022278}
+    - target: {fileID: 6454173005667357360, guid: 00545ba82a3e03547a4eb0d193dc7d3d,
+        type: 3}
+      propertyPath: reach
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6454173007043477841, guid: 00545ba82a3e03547a4eb0d193dc7d3d,
         type: 3}
       propertyPath: m_Name
