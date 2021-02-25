@@ -24,7 +24,7 @@ public class SceneButton : MonoBehaviour
 	}
 	IEnumerator LoadAsync() {
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
-
+		
         while (!asyncLoad.isDone) {
             yield return null;
         }
