@@ -9,7 +9,6 @@ public class ChemSource : ChemInfo {
 	void Start() {
 		base.Start();
 		element = table[elementNum-1];
-		Debug.Log(element);
 		tile.GetComponent<Renderer>().material = Resources.Load("ElementTiles/Materials/"+element.abbr, typeof(Material)) as Material;
 	}
 }
