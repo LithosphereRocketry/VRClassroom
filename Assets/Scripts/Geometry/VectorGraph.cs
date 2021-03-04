@@ -11,18 +11,24 @@ public class VectorGraph : MonoBehaviour
 	public float startT;
 	public float endT;
 	public int nPoints;
+	public Color firstDerivColor;
+	public ObjectToggleButton firstDerivButton;
+	public Color secondDerivColor;
+	public ObjectToggleButton secondDerivButton;
+	public Color crossColor;
+	public ObjectToggleButton crossButton;
+	public GameObject targetPoint;
+	public int pathRate;
+	
 	float dt;
 	Vector3 dvdt;
 	Vector3 d2vdt2;
 	Vector3 cross;
 	List<Vector3> points = new List<Vector3>();
 	
-	public Color firstDerivColor;
-	public Color secondDerivColor;
-	public Color crossColor;
-	
 	LineRenderer graph, lineDv, lineD2v, lineCross;
     void Start() {
+		targetPoint.transform.SetParent(transform);
 		graph = gameObject.GetComponent<LineRenderer>();
 		graph.positionCount = nPoints;
 		dt = (endT - startT) / (float) nPoints;
@@ -30,13 +36,11 @@ public class VectorGraph : MonoBehaviour
 			float t = i*dt;
 			points.Add(new Vector3(x(t), y(t), z(t)));
 		}
-		setupLine(lineDv, firstDerivColor);
-		setupLine(lineD2v, secondDerivColor);
-		setupLine(lineCross, crossColor);
+		lineDv = setupLine(firstDerivColor, firstDerivButton);
+		lineD2v = setupLine(secondDerivColor, secondDerivButton);
+		lineCross = setupLine(crossColor, crossButton);
 		
 		graph.SetPositions(points.ToArray());
-		
-		GenerateVectors(Random.Range(1, nPoints-2));
     }
 	
 	void GenerateVectors(int i) {
@@ -49,22 +53,43 @@ public class VectorGraph : MonoBehaviour
 		
 		lineDv.SetPosition(0, points[i]);
 		lineDv.SetPosition(1, points[i] + dvdt);
+		
+		lineD2v.SetPosition(0, points[i] + dvdt);
+		lineD2v.SetPosition(1, points[i] + dvdt + d2vdt2);
+		
+		lineCross.SetPosition(0, points[i] + cross);
+		lineCross.SetPosition(1, points[i]  - cross);
 	}
 	
-	void setupLine(LineRenderer r, Color c) {
-		r = new GameObject().AddComponent<LineRenderer>();
+	LineRenderer setupLine(Color c, ObjectToggleButton toggle) {
+		GameObject g = new GameObject();
+		g.transform.SetParent(transform);
+		g.transform.localPosition = Vector3.zero;
+		g.transform.localRotation = Quaternion.identity;
+		g.transform.localScale = Vector3.one;
+		if(toggle) {
+			toggle.target = g;
+			g.SetActive(false);
+		}
+		LineRenderer r = g.AddComponent<LineRenderer>();
 		r.positionCount = 2;
 		r.material = new Material(Shader.Find("Sprites/Default"));
 		r.positionCount = 2;
 		r.loop = false;
 		r.startWidth = graph.startWidth;
 		r.useWorldSpace = false;
-		r.gameObject.transform.position = transform.position;
-		r.startColor = c;
-		r.endColor = c;
+		Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(c, 0.0f), new GradientColorKey(c, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1, 0.0f), new GradientAlphaKey(1, 1.0f) }
+        );
+        r.colorGradient = gradient;
+		return r;
 	}
 	
     void Update() {
-        
+		int i = (int) ( Time.time*pathRate % nPoints );
+        GenerateVectors(i);
+		targetPoint.transform.localPosition = points[i];
     }
 }
