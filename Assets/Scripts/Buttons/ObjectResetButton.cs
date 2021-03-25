@@ -18,7 +18,7 @@ public class ObjectResetButton : MonoBehaviour
 		body.velocity = Vector3.zero;
 		body.angularVelocity = Vector3.zero;
 		if(timer) {
-			timer.SendMessage("StartTimer", SendMessageOptions.DontRequireReceiver);
+			timer.SendMessage("StartTimer", target, SendMessageOptions.DontRequireReceiver);
 		}
     }
 }
