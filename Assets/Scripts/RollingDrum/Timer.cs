@@ -24,6 +24,11 @@ public class Timer : MonoBehaviour
 		startTime = Time.time;
 		startX = target.GetComponent<Rigidbody>().position.x;
 	}
+	void StopTimer(GameObject t) {
+		if(target == t) {
+			tracking = false;
+		}
+	}
 	
     void Update() {
         if(tracking) {
