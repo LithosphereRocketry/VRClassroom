@@ -8,5 +8,6 @@ public class CustomMoment : MonoBehaviour
 	
 	void Start() {
         GetComponent<Rigidbody>().inertiaTensor = moment;
+		GetComponent<Rigidbody>().maxAngularVelocity = Mathf.Infinity;
     }
 }
