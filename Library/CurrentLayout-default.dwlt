@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 230
+  controlID: 146
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -395,10 +395,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 48}
-      m_SelectedIDs: 083b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 4afbfffffe35000074360000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 52f6ffff
+      m_LastClickedID: -2478
+      m_ExpandedIDs: 4afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -458,9 +458,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.4702489, y: -0.8911098, z: 33.26233}
+    m_Target: {x: 3.3270812, y: -6.4520297, z: 32.69957}
     speed: 2
-    m_Value: {x: -1.4702489, y: -0.8911098, z: 33.26233}
+    m_Value: {x: 3.3270812, y: -6.4520297, z: 32.69957}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -506,13 +506,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.047367502, y: -0.023657097, z: 0.0011211275, w: 0.99860996}
+    m_Target: {x: 0.17394091, y: -0.02775252, z: 0.0049012434, w: 0.9843663}
     speed: 2
-    m_Value: {x: 0.047366876, y: -0.023656784, z: 0.0011211127, w: 0.9985967}
+    m_Value: {x: 0.17393859, y: -0.02775215, z: 0.0049011777, w: 0.9843532}
   m_Size:
-    m_Target: 14.638352
+    m_Target: 11.236152
     speed: 2
-    m_Value: 13.429681
+    m_Value: 10.752298
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -666,19 +666,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Physics
+    - Assets/Materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Physics
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\BGraham Unity\VRRoom
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 21}
-    m_SelectedIDs: 083b0000
-    m_LastClickedID: 15112
+    m_SelectedIDs: 1c3b0000
+    m_LastClickedID: 15132
     m_ExpandedIDs: 00000000e63a0000e83a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 66
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
