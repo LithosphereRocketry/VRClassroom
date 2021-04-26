@@ -1,4 +1,0 @@
-Balsa texture by Joseph Francis, CC Attribution 2.0. https://creativecommons.org/licenses/by/2.0/deed.en
-Solubility data courtesy of Sigma-Aldrich, https://www.sigmaaldrich.com/technical-documents/articles/chemistry/solubility-rules-solubility-of-common-ionic-compounds.html
-
-Programming, artwork, and level design by Ben Graham
