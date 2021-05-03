@@ -9,10 +9,12 @@ public class IonInfo : MonoBehaviour
 	public class Ion {
 		public int charge;
 		public string abbr;
+		public float mass;
 		
-		public Ion(string a, int c) {
+		public Ion(string a, int c, float m) {
 			charge = c;
 			abbr = a;
+			mass = m;
 		}
 		public override string ToString() {
 			string output = "";
@@ -27,7 +29,7 @@ public class IonInfo : MonoBehaviour
 	}
 	
 	public TextAsset ionData;
-	protected string[,] ionDataSplit = new string[ANIONS+2, CATIONS+2];
+	protected string[,] ionDataSplit = new string[ANIONS+3, CATIONS+3];
 	
 	const int CATIONS = 15;
 	const int ANIONS = 12;
@@ -38,27 +40,21 @@ public class IonInfo : MonoBehaviour
 	
 	void Start()
     {
-		int x = 0;
 		string[] rows = ionData.text.Split('\n');
-		foreach(string r in rows) {
-			int y = 0;
-			string[] elems = r.Split(',');
-			foreach(string e in elems) {
-				ionDataSplit[x, y] = e;
-				y++;
+		for(int i = 0; i < rows.Length; i++) {
+			string[] elems = rows[i].Split(',');
+			for(int j = 0; j < elems.Length; j++) {
+				ionDataSplit[i, j] = elems[j];
 			}
-			x++;
 		}
 		
 		for(int i = 0; i < ANIONS; i++) {
-			anions[i] = new Ion(ionDataSplit[i+2, 0], int.Parse(ionDataSplit[i+2, 1]));
+			anions[i] = new Ion(ionDataSplit[i+3, 0], int.Parse(ionDataSplit[i+3, 1]), float.Parse(ionDataSplit[i+3, 2]));
 			for(int j = 0; j < CATIONS; j++) {
 				if(i == 0) {
-					Debug.Log(ionDataSplit[0, j+2]);
-					cations[j] = new Ion(ionDataSplit[0, j+2], int.Parse(ionDataSplit[1, j+2], CultureInfo.InvariantCulture));
-					Debug.Log(cations[j]);
+					cations[j] = new Ion(ionDataSplit[0, j+3], int.Parse(ionDataSplit[1, j+3]), float.Parse(ionDataSplit[2, i+3]));
 				}
-				string t = ionDataSplit[i+2, j+2];
+				string t = ionDataSplit[i+3, j+3];
 				float s;
 				if(t == "s") { s = float.PositiveInfinity; }
 				else if(float.TryParse(t, out s)) {}
@@ -67,9 +63,8 @@ public class IonInfo : MonoBehaviour
 			}
 		}
 		
-		Debug.Log(cations[4].abbr);
-		Debug.Log(anions[7].abbr);
-		Debug.Log(solubility[4, 7]);
+		Debug.Log(getSolubility(4, 7));
+		Debug.Log(getMass(cations[4], anions[7]));
     }
 	
 	static string subscript(int n) {
@@ -80,4 +75,23 @@ public class IonInfo : MonoBehaviour
 			return d.ToString();
 		}
 	}
+	static int gcd(int a, int b) {
+		while(a!=0 && b!=0) {
+			if(a > b) { a %= b; }
+			else { b %= a; }
+		}
+		return a | b;
+	}
+	protected float getSolubility(int cationIndex, int anionIndex) {
+		return solubility[cationIndex, anionIndex];
+	}
+	protected float getMass(Ion cation, Ion anion) {
+		int nc = -anion.charge;
+		int na = cation.charge;
+		int scalar = gcd(nc, na);
+		nc /= scalar;
+		na /= scalar;
+		return cation.mass*nc + anion.mass*na;
+	}
+
 }
