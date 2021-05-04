@@ -38,7 +38,7 @@ public class IonInfo : MonoBehaviour
 	protected Ion[] anions = new Ion[ANIONS];
 	protected float[,] solubility = new float[CATIONS, ANIONS];
 	
-	void Start()
+	protected void Start()
     {
 		string[] rows = ionData.text.Split('\n');
 		for(int i = 0; i < rows.Length; i++) {
@@ -62,9 +62,6 @@ public class IonInfo : MonoBehaviour
 				solubility[j, i] = s;
 			}
 		}
-		
-		Debug.Log(getSolubility(4, 7));
-		Debug.Log(getMass(cations[4], anions[7]));
     }
 	
 	static string subscript(int n) {
