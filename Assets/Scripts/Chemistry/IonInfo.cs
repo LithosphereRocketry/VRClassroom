@@ -13,7 +13,7 @@ public class IonInfo : MonoBehaviour
 		
 		public Ion(string a, int c, float m) {
 			charge = c;
-			abbr = a;
+			abbr = a.Replace("\r", "");
 			mass = m;
 		}
 		public override string ToString() { // produce human-readable ion abbreviation
@@ -51,7 +51,7 @@ public class IonInfo : MonoBehaviour
 			anions[i] = new Ion(ionDataSplit[i+3, 0], int.Parse(ionDataSplit[i+3, 1]), float.Parse(ionDataSplit[i+3, 2])); // read anion from beginning of row
 			for(int j = 0; j < CATIONS; j++) {
 				if(i == 0) { // once, read cations from beginning of each column
-					cations[j] = new Ion(ionDataSplit[0, j+3], int.Parse(ionDataSplit[1, j+3]), float.Parse(ionDataSplit[2, i+3]));
+					cations[j] = new Ion(ionDataSplit[0, j+3], int.Parse(ionDataSplit[1, j+3]), float.Parse(ionDataSplit[2, j+3]));
 				}
 				string t = ionDataSplit[i+3, j+3]; // read each solubility cell
 				float s; // final parsed solubility (g/mol)

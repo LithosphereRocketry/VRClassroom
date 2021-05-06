@@ -14,13 +14,14 @@ public class IonSource : IonInfo {
 		} else {
 			ion = anions[index];
 		}
-		Texture2D t = Resources.Load("ElementTiles/"+ion.abbr, typeof(Texture2D)) as Texture2D;
+		string ab = ion.abbr;
+		Debug.Log(ab);
+		Texture2D t = Resources.Load<Texture2D>("ElementTiles/"+ab) as Texture2D;
 		if(t != null) {
 			tile.GetComponent<Renderer>().material.SetTexture("_MainTex", t);
 			tile.GetComponent<Renderer>().material.SetTexture("_EmissionMap", t);
 		} else {
-			Debug.Log("Failed to load texture for compound "+ion.abbr);
+			Debug.Log("Failed to load texture for compound "+ab);
 		}
-		
     }
 }
