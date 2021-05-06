@@ -15,8 +15,10 @@ public class IonSource : IonInfo {
 			ion = anions[index];
 		}
 		Texture2D t = Resources.Load("ElementTiles/"+ion.abbr, typeof(Texture2D)) as Texture2D;
-		Debug.Log(ion.abbr);
-		if(t != null) { tile.GetComponent<Renderer>().material.SetTexture("_MainTex", t); } else {
+		if(t != null) {
+			tile.GetComponent<Renderer>().material.SetTexture("_MainTex", t);
+			tile.GetComponent<Renderer>().material.SetTexture("_EmissionMap", t);
+		} else {
 			Debug.Log("Failed to load texture for compound "+ion.abbr);
 		}
 		
