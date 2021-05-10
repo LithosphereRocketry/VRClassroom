@@ -8,8 +8,8 @@ public class IonClipboard : IonInfo
 	public GameObject textCanvas;
 	Text text;
 	
-	int anionIndex = -1;
 	int cationIndex = -1;
+	int anionIndex = -1;
 	
     void Start() {
 		base.Start();
@@ -24,6 +24,13 @@ public class IonClipboard : IonInfo
 			if(src.isCation) { cationIndex = src.index; }
 			else { anionIndex = src.index; }
 			text.text = UpdateText();
+		}
+		
+		ChemMachine machine = (ChemMachine) node.GetComponent("ChemMachine");
+		
+		if(machine && cationIndex >= 0 && anionIndex >= 0) {
+			int[] ions = {cationIndex, anionIndex};
+			machine.gameObject.SendMessage("ProduceCompound", ions);
 		}
 		
 		if(node.GetComponent("TrashCan")) {
