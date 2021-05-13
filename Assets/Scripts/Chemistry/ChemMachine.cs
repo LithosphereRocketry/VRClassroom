@@ -10,16 +10,23 @@ public class ChemMachine : IonInfo
 	public float passiveSpeed;
 	public float activeSpeed;
 	public float dampTime;
-	public float deltaTime;
 	public float onTime;
+	float currentTarget;
 	void Start() {
         anim = animObject.GetComponent<Animator>();
 		anim.SetFloat("SpinSpeed", passiveSpeed);
+		currentTarget = passiveSpeed;
     }
+	void Update() {
+		anim.SetFloat("SpinSpeed", currentTarget, dampTime, Time.deltaTime);
+	}
 
-    void ProduceCompound(int[] ions) {
-        anim.SetFloat("SpinSpeed", activeSpeed, dampTime, deltaTime);
+    IEnumerator ProduceCompound(int[] ionInputs) {
+		Debug.Log("a");
+		currentTarget = activeSpeed;
 		yield return new WaitForSeconds(onTime);
-        anim.SetFloat("SpinSpeed", passiveSpeed, dampTime, deltaTime);
+		Debug.Log("b");
+		currentTarget = passiveSpeed;
     }
+	
 }

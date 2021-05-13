@@ -15,7 +15,6 @@ public class IonSource : IonInfo {
 			ion = anions[index];
 		}
 		string ab = ion.abbr;
-		Debug.Log(ab);
 		Texture2D t = Resources.Load<Texture2D>("ElementTiles/"+ab) as Texture2D;
 		if(t != null) {
 			tile.GetComponent<Renderer>().material.SetTexture("_MainTex", t);
