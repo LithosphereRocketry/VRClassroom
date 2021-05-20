@@ -32,8 +32,13 @@ public class Solution : IonInfo
 		solidObject.SetActive(solids.Count > 0);
     }
 	void ProduceCompound(int[] ions) {
-		AddIon(ions[0], true);
-		AddIon(ions[1], false);
+		int nc = -anions[ions[1]].charge; // calculate empirical formula via GCD
+		int na = cations[ions[0]].charge;
+		int scalar = gcd(nc, na);
+		nc /= scalar;
+		na /= scalar;
+		for(int i = 0; i < nc; i++) { AddIon(ions[0], true); }
+		for(int i = 0; i < na; i++) { AddIon(ions[1], false); }
 	}
 	void AddIon(int ion, bool cation) {
 		waterVolume = maxVolume;

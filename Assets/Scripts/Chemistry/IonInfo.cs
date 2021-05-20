@@ -71,15 +71,28 @@ public class IonInfo : MonoBehaviour
 			return d.ToString(); // otherwise just return the first digit
 		}
 	}
-	static int gcd(int a, int b) { // Euler GCD utility
+	protected static int gcd(int a, int b) { // Euler GCD utility
 		while(a!=0 && b!=0) {
 			if(a > b) { a %= b; }
 			else { b %= a; }
 		}
 		return a | b;
 	}
+	protected int nCations(int cat, int an) {
+		int nc = -anions[an].charge; // calculate empirical formula via GCD
+		int na = cations[cat].charge;
+		int scalar = gcd(nc, na);
+		nc /= scalar;
+		return nc;
+	}
+	protected int nAnions(int cat, int an) {
+		int nc = -anions[an].charge; // calculate empirical formula via GCD
+		int na = cations[cat].charge;
+		int scalar = gcd(nc, na);
+		na /= scalar;
+		return na;
+	}
 	protected float getSolubility(int cationIndex, int anionIndex) { // literally just reading the solubility matrix
-		Debug.Log(cationIndex +" "+ anionIndex+" "+solubility[cationIndex, anionIndex]);
 		return solubility[cationIndex, anionIndex];
 	}
 	protected float getMass(Ion cation, Ion anion) { // calculate compound molar mass
