@@ -7,9 +7,10 @@ public class ItemGenerator : MonoBehaviour
     public GameObject item;
 	public float wobbleSize;
 	public float wobbleTime;
+	public Transform child;
 	
 	void Update() {
-		Transform child = null;
+		child = null;
         foreach(Transform t in transform) {
 			if(t.gameObject != gameObject) {
 				child = t;

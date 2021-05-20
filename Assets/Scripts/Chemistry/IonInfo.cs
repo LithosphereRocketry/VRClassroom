@@ -55,7 +55,7 @@ public class IonInfo : MonoBehaviour
 				}
 				string t = ionDataSplit[i+3, j+3]; // read each solubility cell
 				float s; // final parsed solubility (g/mol)
-				if(t == "s") { s = float.PositiveInfinity; } // if it's 's'/soluble, set s to infinity
+				if(t == "s") { s = 99999; } // if it's 's'/soluble, set s to ~infinity
 				else if(float.TryParse(t, out s)) {} // otherwise try to read as a number
 				else { s = 0; } // failing all else, return 0
 				solubility[j, i] = s;
@@ -79,6 +79,7 @@ public class IonInfo : MonoBehaviour
 		return a | b;
 	}
 	protected float getSolubility(int cationIndex, int anionIndex) { // literally just reading the solubility matrix
+		Debug.Log(cationIndex +" "+ anionIndex+" "+solubility[cationIndex, anionIndex]);
 		return solubility[cationIndex, anionIndex];
 	}
 	protected float getMass(Ion cation, Ion anion) { // calculate compound molar mass

@@ -22,10 +22,9 @@ public class ChemMachine : IonInfo
 	}
 
     IEnumerator ProduceCompound(int[] ionInputs) {
-		Debug.Log("a");
 		currentTarget = activeSpeed;
 		yield return new WaitForSeconds(onTime);
-		Debug.Log("b");
+		((ItemGenerator) container.GetComponent("ItemGenerator")).child.SendMessage("ProduceCompound", ionInputs);
 		currentTarget = passiveSpeed;
     }
 	
