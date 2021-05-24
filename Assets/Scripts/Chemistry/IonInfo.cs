@@ -31,12 +31,12 @@ public class IonInfo : MonoBehaviour
 	public TextAsset ionData;
 	protected string[,] ionDataSplit = new string[ANIONS+3, CATIONS+3]; // indexable form of raw text
 	
-	const int CATIONS = 15; // IMPORTANT
-	const int ANIONS = 12;  // Change these when adding additional ions to the matrix
+	protected const int CATIONS = 15; // IMPORTANT
+	protected const int ANIONS = 12;  // Change these when adding additional ions to the matrix
 	
 	protected Ion[] cations = new Ion[CATIONS]; // database of all cations
 	protected Ion[] anions = new Ion[ANIONS]; // database of all anions
-	protected float[,] solubility = new float[CATIONS, ANIONS]; // solubility matrix
+	public float[,] solubility = new float[CATIONS, ANIONS]; // solubility matrix
 	
 	protected void Start() { // Read data from solubility & info matrix, typically located at Scripts/Chemistry/ions.csv
 		string[] rows = ionData.text.Split('\n');
