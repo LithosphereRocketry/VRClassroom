@@ -10,6 +10,7 @@ public class Solution : IonInfo
 	public GameObject waterObject;
 	public GameObject solidObject;
 	public float defaultMoles;
+	float ionInScalar = 1;
 	
 	Dissolved[] disCations = new Dissolved[CATIONS];
 	Dissolved[] disAnions = new Dissolved[ANIONS];
@@ -47,20 +48,18 @@ public class Solution : IonInfo
 	void Precipitate(Dissolved d) {
 		if(d.cation) {
 			foreach(Dissolved s in disAnions) {
-				float maxSol = d.getSolubility(s, this);
-				float molarity = Mathf.Min(d.moles/nCations(d.index, s.index), s.moles/nAnions(d.index, s.index)) / waterVolume;
-				if(molarity > maxSol) {
-					solids.Add(new Compound(d, s, (molarity-maxSol)*waterVolume));
-					Debug.Log("dumpC");
+				float maxSol = d.getSolubility(s, this) * waterVolume;
+				float molsIn = Mathf.Min(d.moles/nCations(d.index, s.index), s.moles/nAnions(d.index, s.index));
+				if(molsIn > maxSol) {
+					solids.Add(new Compound(d, s, molsIn-maxSol));
 				}
 			}
 		} else {
 			foreach(Dissolved s in disCations) {
-				float maxSol = d.getSolubility(s, this);
-				float molarity = Mathf.Min(s.moles/nCations(s.index, d.index), d.moles/nAnions(s.index, d.index)) / waterVolume;
-				if(molarity > maxSol) {
-					solids.Add(new Compound(s, d, (molarity-maxSol)*waterVolume));
-					Debug.Log("dumpA");
+				float maxSol = d.getSolubility(s, this) * waterVolume;
+				float molsIn = Mathf.Min(s.moles/nCations(s.index, d.index), d.moles/nAnions(s.index, d.index));
+				if(molsIn > maxSol) {
+					solids.Add(new Compound(s, d, molsIn-maxSol));
 				}
 			}
 		}
@@ -86,6 +85,24 @@ public class Solution : IonInfo
 		disAnions[indices[1]].moles += defaultMoles * nCations(indices[0], indices[1]);
 		Precipitate(disCations[indices[0]]);
 		Precipitate(disAnions[indices[1]]);
+	}
+	void AddWater(float amt) {
+		if(waterVolume + amt <= maxVolume) {
+			ionInScalar = 1;
+			waterVolume += amt;
+		} else {
+			ionInScalar = (maxVolume-waterVolume)/amt;
+			waterVolume = maxVolume;
+		}
+	}
+	void AddIon(IndQty ion) {
+		if(ion.cation) {
+			disCations[ion.ind].moles += ion.qty*ionInScalar;
+			Precipitate(disCations[ion.ind]);
+		} else {
+			disAnions[ion.ind].moles += ion.qty*ionInScalar;
+			Precipitate(disAnions[ion.ind]);
+		}
 	}
 
     void Update() {

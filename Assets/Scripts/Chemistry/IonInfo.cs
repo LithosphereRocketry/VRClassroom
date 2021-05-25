@@ -28,6 +28,17 @@ public class IonInfo : MonoBehaviour
 		}
 	}
 	
+	protected class IndQty {
+		public int ind;
+		public float qty;
+		public bool cation;
+		public IndQty(int index, float quantity, bool isCation) {
+			ind = index;
+			qty = quantity;
+			cation = isCation;
+		}
+	}
+	
 	public TextAsset ionData;
 	protected string[,] ionDataSplit = new string[ANIONS+3, CATIONS+3]; // indexable form of raw text
 	

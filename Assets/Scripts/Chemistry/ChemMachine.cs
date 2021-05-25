@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ChemMachine : IonInfo
 {
-    public GameObject container;
+    public float fluidQty;
+	public float ionQty;
+	public GameObject container;
 	public GameObject animObject;
     private Animator anim;
 	public float passiveSpeed;
@@ -24,7 +26,9 @@ public class ChemMachine : IonInfo
     IEnumerator ProduceCompound(int[] ionInputs) {
 		currentTarget = activeSpeed;
 		yield return new WaitForSeconds(onTime);
-		((ItemGenerator) container.GetComponent("ItemGenerator")).child.SendMessage("ProduceCompound", ionInputs);
+		GameObject gen = ((ItemGenerator) container.GetComponent("ItemGenerator")).child.gameObject;
+		gen.SendMessage("ProduceCompound", ionInputs);
+		
 		currentTarget = passiveSpeed;
     }
 	

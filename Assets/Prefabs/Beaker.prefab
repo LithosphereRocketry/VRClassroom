@@ -93,6 +93,7 @@ MonoBehaviour:
   maxVolume: 1
   waterObject: {fileID: 3384358179590259271}
   solidObject: {fileID: 8027534188918766955}
+  defaultMoles: 1
 --- !u!64 &2481220787247460684
 MeshCollider:
   m_ObjectHideFlags: 0
