@@ -11,12 +11,13 @@ public class Solution : IonInfo
 	public GameObject solidObject;
 	public float defaultMoles;
 	float ionInScalar = 1;
+	Vector3 waterScale;
 	
 	Dissolved[] disCations = new Dissolved[CATIONS];
 	Dissolved[] disAnions = new Dissolved[ANIONS];
 	List<Compound> solids = new List<Compound>();
 	
-	class Dissolved {
+	public class Dissolved {
 		public int index;
 		public bool cation;
 		public float moles;
@@ -32,9 +33,12 @@ public class Solution : IonInfo
 			if(cat < 0 || an < 0) { return 0; }
 			return info.solubility[cat, an];
 		}
+		public IndQty pack() {
+			return new IndQty(index, moles, cation);
+		}
 	}
 	
-	class Compound {
+	public class Compound {
 		float moles;
 		Dissolved anion, cation;
 		public Compound(Dissolved cat, Dissolved an, float moles) {
@@ -51,7 +55,7 @@ public class Solution : IonInfo
 				float maxSol = d.getSolubility(s, this) * waterVolume;
 				float molsIn = Mathf.Min(d.moles/nCations(d.index, s.index), s.moles/nAnions(d.index, s.index));
 				if(molsIn > maxSol) {
-					solids.Add(new Compound(d, s, molsIn-maxSol));
+					AddSolid(new Compound(d, s, molsIn-maxSol));
 				}
 			}
 		} else {
@@ -59,7 +63,7 @@ public class Solution : IonInfo
 				float maxSol = d.getSolubility(s, this) * waterVolume;
 				float molsIn = Mathf.Min(s.moles/nCations(s.index, d.index), d.moles/nAnions(s.index, d.index));
 				if(molsIn > maxSol) {
-					solids.Add(new Compound(s, d, molsIn-maxSol));
+					AddSolid(new Compound(s, d, molsIn-maxSol));
 				}
 			}
 		}
@@ -78,15 +82,10 @@ public class Solution : IonInfo
 			disAnions[i].index = i;
 			disAnions[i].cation = false;
 		}
+		waterScale = waterObject.transform.localScale;
     }
-	void ProduceCompound(int[] indices) {
-		waterVolume += 1;
-		disCations[indices[0]].moles += defaultMoles * nCations(indices[0], indices[1]);
-		disAnions[indices[1]].moles += defaultMoles * nCations(indices[0], indices[1]);
-		Precipitate(disCations[indices[0]]);
-		Precipitate(disAnions[indices[1]]);
-	}
-	void AddWater(float amt) {
+	public void AddSolid(Compound c) { solids.Add(c); } // dumb but lets me keep list private
+	public void AddWater(float amt) {
 		if(waterVolume + amt <= maxVolume) {
 			ionInScalar = 1;
 			waterVolume += amt;
@@ -95,7 +94,7 @@ public class Solution : IonInfo
 			waterVolume = maxVolume;
 		}
 	}
-	void AddIon(IndQty ion) {
+	public void AddIon(IndQty ion) {
 		if(ion.cation) {
 			disCations[ion.ind].moles += ion.qty*ionInScalar;
 			Precipitate(disCations[ion.ind]);
@@ -104,9 +103,29 @@ public class Solution : IonInfo
 			Precipitate(disAnions[ion.ind]);
 		}
 	}
-
     void Update() {
         waterObject.SetActive(waterVolume > 0);
 		solidObject.SetActive(solids.Count > 0);
+		waterObject.transform.localScale = new Vector3(waterScale.x, waterScale.y, waterScale.z * waterVolume/maxVolume);
     }
+	void ShortClicked(RaycastHit point) {
+		Solution other = (Solution) point.collider.gameObject.GetComponent("Solution");
+		if(other) {
+			other.AddWater(waterVolume);
+			for(int i = 0; i < CATIONS; i++) {
+				other.AddIon(disCations[i].pack());
+				disCations[i].moles = 0;
+			}
+			for(int i = 0; i < ANIONS; i++) {
+				other.AddIon(disAnions[i].pack());
+				disAnions[i].moles = 0;
+			}
+			other.AddWater(0);
+			waterVolume = 0; 
+			foreach(Compound c in solids) {
+				other.AddSolid(c);
+			}
+			solids.Clear();
+		}
+	}
 }

@@ -8527,6 +8527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ionData: {fileID: 4900000, guid: e8dfa7757e12318488c96d3d4cbcce00, type: 3}
+  fluidQty: 0.3
+  ionQty: 1
   container: {fileID: 1670636788}
   animObject: {fileID: 1805213829}
   passiveSpeed: 0.5

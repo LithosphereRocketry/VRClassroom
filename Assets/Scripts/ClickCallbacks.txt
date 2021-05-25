@@ -25,13 +25,16 @@ Target object: Held items
 Requirements to call:
 - Trigger short-pressed
 - Items are held
-- Player is not targeting a surface
+- Player is not targeting a surface or surface is out of reach
 
 LongClickedSky(Ray aim)
 Target object: Held items
 Requirements to call:
 - Trigger long-pressed
 - Items are held
-- Player is not targeting a surface
+- Player is not targeting a surface or surface is out of reach
 
 # Typically sky callbacks should call their normal equivalents with no target or some similar action.
+# When designing environments where items will be used frequently without a particular target, minimize
+# the number of wall surfaces marked as environment, as targeting these surfaces will override these
+# functions to the Teleport action.

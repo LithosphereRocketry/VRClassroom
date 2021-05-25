@@ -27,8 +27,10 @@ public class ChemMachine : IonInfo
 		currentTarget = activeSpeed;
 		yield return new WaitForSeconds(onTime);
 		GameObject gen = ((ItemGenerator) container.GetComponent("ItemGenerator")).child.gameObject;
-		gen.SendMessage("ProduceCompound", ionInputs);
-		
+		gen.SendMessage("AddWater", fluidQty);
+		gen.SendMessage("AddIon", new IndQty(ionInputs[0], ionQty, true), SendMessageOptions.RequireReceiver);
+		gen.SendMessage("AddIon", new IndQty(ionInputs[1], ionQty, false), SendMessageOptions.RequireReceiver);
+		gen.SendMessage("AddWater", 0, SendMessageOptions.RequireReceiver);
 		currentTarget = passiveSpeed;
     }
 	

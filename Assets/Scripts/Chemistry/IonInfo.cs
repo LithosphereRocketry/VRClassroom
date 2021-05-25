@@ -28,7 +28,7 @@ public class IonInfo : MonoBehaviour
 		}
 	}
 	
-	protected class IndQty {
+	public class IndQty {
 		public int ind;
 		public float qty;
 		public bool cation;
