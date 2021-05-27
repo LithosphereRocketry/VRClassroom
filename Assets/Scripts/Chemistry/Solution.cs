@@ -86,27 +86,42 @@ public class Solution : IonInfo
     }
 	public void AddSolid(Compound c) { solids.Add(c); } // dumb but lets me keep list private
 	public void AddWater(float amt) {
-		if(waterVolume + amt <= maxVolume) {
-			ionInScalar = 1;
-			waterVolume += amt;
+		Debug.Log(((Solution) transform.parent.parent.gameObject.GetComponent("Solution")).maxVolume);
+		//Component pour = transform.parent.parent.gameObject.GetComponent("Solution");
+		Component pour = null;
+		if(pour) {
+			((Solution) pour).AddWater(amt);
 		} else {
-			ionInScalar = (maxVolume-waterVolume)/amt;
-			waterVolume = maxVolume;
+			if(waterVolume + amt <= maxVolume) {
+				ionInScalar = 1;
+				waterVolume += amt;
+			} else {
+				ionInScalar = (maxVolume-waterVolume)/amt;
+				waterVolume = maxVolume;
+			}			
 		}
 	}
 	public void AddIon(IndQty ion) {
-		if(ion.cation) {
-			disCations[ion.ind].moles += ion.qty*ionInScalar;
-			Precipitate(disCations[ion.ind]);
-		} else {
-			disAnions[ion.ind].moles += ion.qty*ionInScalar;
-			Precipitate(disAnions[ion.ind]);
+		//Solution pour = (Solution) transform.parent.parent.gameObject.GetComponent("Solution");
+		Component pour = null;
+		if(pour) {
+			((Solution) pour).AddIon(ion);
+		} else {		
+			if(ion.cation) {
+				disCations[ion.ind].moles += ion.qty*ionInScalar;
+				Precipitate(disCations[ion.ind]);
+			} else {
+				disAnions[ion.ind].moles += ion.qty*ionInScalar;
+				Precipitate(disAnions[ion.ind]);
+			}
 		}
 	}
     void Update() {
-        waterObject.SetActive(waterVolume > 0);
-		solidObject.SetActive(solids.Count > 0);
-		waterObject.transform.localScale = new Vector3(waterScale.x, waterScale.y, waterScale.z * waterVolume/maxVolume);
+        solidObject.SetActive(solids.Count > 0);
+		if(maxVolume > 0) {
+			waterObject.SetActive(waterVolume > 0);
+			waterObject.transform.localScale = new Vector3(waterScale.x, waterScale.y, waterScale.z * waterVolume/maxVolume);
+		}
     }
 	void ShortClicked(RaycastHit point) {
 		Solution other = (Solution) point.collider.gameObject.GetComponent("Solution");
