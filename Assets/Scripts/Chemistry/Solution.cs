@@ -86,34 +86,37 @@ public class Solution : IonInfo
     }
 	public void AddSolid(Compound c) { solids.Add(c); } // dumb but lets me keep list private
 	public void AddWater(float amt) {
-		Debug.Log(((Solution) transform.parent.parent.gameObject.GetComponent("Solution")).maxVolume);
-		//Component pour = transform.parent.parent.gameObject.GetComponent("Solution");
-		Component pour = null;
-		if(pour) {
-			((Solution) pour).AddWater(amt);
-		} else {
-			if(waterVolume + amt <= maxVolume) {
-				ionInScalar = 1;
-				waterVolume += amt;
-			} else {
-				ionInScalar = (maxVolume-waterVolume)/amt;
-				waterVolume = maxVolume;
-			}			
+		if(transform.parent) {
+			if(transform.parent.parent) {
+				if(transform.parent.parent.gameObject.GetComponent("Solution")) {
+					((Solution) transform.parent.parent.gameObject.GetComponent("Solution")).AddWater(amt);
+					return;
+				}
+			}
 		}
+		if(waterVolume + amt <= maxVolume) {
+			ionInScalar = 1;
+			waterVolume += amt;
+		} else {
+			ionInScalar = (maxVolume-waterVolume)/amt;
+			waterVolume = maxVolume;
+		}			
 	}
 	public void AddIon(IndQty ion) {
-		//Solution pour = (Solution) transform.parent.parent.gameObject.GetComponent("Solution");
-		Component pour = null;
-		if(pour) {
-			((Solution) pour).AddIon(ion);
-		} else {		
-			if(ion.cation) {
-				disCations[ion.ind].moles += ion.qty*ionInScalar;
-				Precipitate(disCations[ion.ind]);
-			} else {
-				disAnions[ion.ind].moles += ion.qty*ionInScalar;
-				Precipitate(disAnions[ion.ind]);
+		if(transform.parent) {
+			if(transform.parent.parent) {
+				if(transform.parent.parent.gameObject.GetComponent("Solution")) {
+					((Solution) transform.parent.parent.gameObject.GetComponent("Solution")).AddIon(ion);
+					return;
+				}
 			}
+		}
+		if(ion.cation) {
+			disCations[ion.ind].moles += ion.qty*ionInScalar;
+			Precipitate(disCations[ion.ind]);
+		} else {
+			disAnions[ion.ind].moles += ion.qty*ionInScalar;
+			Precipitate(disAnions[ion.ind]);
 		}
 	}
     void Update() {
