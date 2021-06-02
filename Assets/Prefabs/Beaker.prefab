@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2481220787403152231}
   - component: {fileID: 2481220787403152230}
   - component: {fileID: 53236805341998024}
+  - component: {fileID: 72575016411219662}
   m_Layer: 0
   m_Name: Beaker
   m_TagString: Untagged
@@ -80,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ionData: {fileID: 4900000, guid: e8dfa7757e12318488c96d3d4cbcce00, type: 3}
+  emptyMass: 100
   maxVolume: 1
   waterObject: {fileID: 3384358179590259271}
   solidObject: {fileID: 8027534188918766955}
@@ -96,6 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea9bbefdc124914aacb31fb5d510041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &72575016411219662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481220787403152235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebf9eb1da1a2c14bbb0633cf9959694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0
 --- !u!64 &2481220787247460684
 MeshCollider:
   m_ObjectHideFlags: 0

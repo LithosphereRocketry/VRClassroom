@@ -45,8 +45,8 @@ public class IonInfo : MonoBehaviour
 	protected const int CATIONS = 15; // IMPORTANT
 	protected const int ANIONS = 12;  // Change these when adding additional ions to the matrix
 	
-	protected Ion[] cations = new Ion[CATIONS]; // database of all cations
-	protected Ion[] anions = new Ion[ANIONS]; // database of all anions
+	public Ion[] cations = new Ion[CATIONS]; // database of all cations
+	public Ion[] anions = new Ion[ANIONS]; // database of all anions
 	public float[,] solubility = new float[CATIONS, ANIONS]; // solubility matrix
 	
 	protected void Start() { // Read data from solubility & info matrix, typically located at Scripts/Chemistry/ions.csv
@@ -89,14 +89,14 @@ public class IonInfo : MonoBehaviour
 		}
 		return a | b;
 	}
-	protected int nCations(int cat, int an) {
+	public int nCations(int cat, int an) {
 		int nc = -anions[an].charge; // calculate empirical formula via GCD
 		int na = cations[cat].charge;
 		int scalar = gcd(nc, na);
 		nc /= scalar;
 		return nc;
 	}
-	protected int nAnions(int cat, int an) {
+	public int nAnions(int cat, int an) {
 		int nc = -anions[an].charge; // calculate empirical formula via GCD
 		int na = cations[cat].charge;
 		int scalar = gcd(nc, na);
