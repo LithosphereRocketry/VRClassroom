@@ -25,14 +25,17 @@ public class SnapItem : PickupItem
 		rb.drag = drag;
 		rb.angularDrag = angDrag;
 		rb.centerOfMass = cg;
+		
+		GameObject mr = MassRoot(gameObject);
+		mr.SendMessage("LiftCollision", SendMessageOptions.DontRequireReceiver);
 		base.WorldClicked(hand);
+		mr.SendMessage("LowerCollision", SendMessageOptions.DontRequireReceiver);
 	}
 	void ShortClicked(RaycastHit target) {
 		GameObject node = target.collider.gameObject;
+		GameObject mr = MassRoot(node);
+		mr.SendMessage("LiftCollision", SendMessageOptions.DontRequireReceiver);
 		if(node.GetComponent("NodeSnap")) {
-		//	storedBody = gameObject.GetComponent<Rigidbody>();
-		//	Destroy(gameObject.GetComponent<Rigidbody>());
-			
 			gameObject.transform.SetParent(node.transform, false);
 			mass = rb.mass;
 			drag = rb.drag;
@@ -40,5 +43,23 @@ public class SnapItem : PickupItem
 			cg = rb.centerOfMass;
 			Destroy(rb);
 		}
+		mr.SendMessage("LowerCollision", SendMessageOptions.DontRequireReceiver);
+	}
+	GameObject MassRoot(GameObject start) {
+		GameObject massRoot = start;
+		bool foundRoot = false;
+		while(!foundRoot) {
+			Transform nextRootTransform = massRoot.transform.parent;
+			if(nextRootTransform) {
+				massRoot = nextRootTransform.gameObject;
+				if(massRoot.GetComponent<Rigidbody>() && massRoot.GetComponent(typeof(MassComponent))) {
+					foundRoot = true;
+				}
+			} else {
+				massRoot = gameObject;
+				foundRoot = true;
+			}
+		}
+		return massRoot;
 	}
 }

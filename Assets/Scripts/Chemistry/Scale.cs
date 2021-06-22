@@ -16,14 +16,20 @@ public class Scale : MonoBehaviour
 	
     void OnCollisionEnter(Collision other) {
 		GameObject g = other.gameObject;
+		LowerCollision(g);
+	}
+	void OnCollisionExit(Collision other) {
+		GameObject g = other.gameObject;
+		LiftCollision(g);
+	}
+	void LowerCollision(GameObject g) {
 		Component[] masses = g.transform.GetComponentsInChildren(typeof(MassComponent));
 		foreach(Component m in masses) {
 			currentMass += ((MassComponent) m).mass;
 		}
 		setMass();
 	}
-	void OnCollisionExit(Collision other) {
-		GameObject g = other.gameObject;
+	void LiftCollision(GameObject g) {
 		Component[] masses = g.transform.GetComponentsInChildren(typeof(MassComponent));
 		foreach(Component m in masses) {
 			currentMass -= ((MassComponent) m).mass;
